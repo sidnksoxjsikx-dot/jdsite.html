@@ -3,36 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discipline and the Pen | Advocacy PH</title>
+    <title>Discipline & Action | Advocacy PH</title>
     <style>
-        /* Modern Web Design Elements */
         :root {
-            --primary-blue: #002b5b;
-            --secondary-green: #2d5a27;
-            --light-bg: #f8f9fa;
-            --dark-text: #333333;
+            --primary-dark: #1b1b1b;
+            --army-green: #3a5a40;
+            --accent-gold: #a39161;
+            --light: #f1f1f1;
         }
 
-        body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            color: var(--dark-text);
-            background-color: var(--light-bg);
+        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+
+        /* --- LANDING PAGE / SPLASH SCREEN --- */
+        #landing-page {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: fixed;
+            z-index: 2000;
+            transition: 0.8s ease-in-out;
         }
 
-        /* Header with a colorful background image */
+        #landing-page h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--accent-gold); }
+        #landing-page p { font-size: 1.2rem; margin-bottom: 30px; max-width: 80%; }
+
+        .btn-enter {
+            padding: 15px 40px;
+            background: var(--army-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            border: 2px solid var(--army-green);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-enter:hover { background: transparent; border-color: white; }
+
+        /* --- MAIN WEBSITE (Hidden at first) --- */
+        #main-site { display: none; background-color: var(--light); }
+
+        /* --- REST OF THE STYLES --- */
         header {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=1000&q=80');
             background-size: cover;
-            background-position: center;
             color: white;
             padding: 80px 20px;
             text-align: center;
         }
 
         nav {
-            background: #ffffff;
+            background: #fff;
             padding: 15px;
             position: sticky;
             top: 0;
@@ -41,111 +71,80 @@
             z-index: 1000;
         }
 
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--primary-blue);
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
-
-        /* Colorful Infographic Cards */
-        .infographic {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .info-card { flex: 1; min-width: 200px; padding: 15px; }
-        .info-card h2 { color: var(--secondary-green); font-size: 2.5rem; margin-bottom: 5px; }
-
-        /* Experience Section */
-        .about-section {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 10px solid var(--primary-blue);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        /* Colorful Feedback Button */
-        .btn-feedback {
-            display: inline-block;
-            background: var(--secondary-green);
-            color: white;
-            padding: 18px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        .btn-feedback:hover { background: var(--primary-blue); transform: scale(1.05); }
-
-        footer { text-align: center; padding: 30px; background: #222; color: white; margin-top: 40px; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--army-green); font-weight: bold; }
+        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
+        .card-row { display: flex; flex-wrap: wrap; gap: 20px; margin: 30px 0; }
+        .card { flex: 1; min-width: 250px; background: white; padding: 25px; border-radius: 10px; border-top: 5px solid var(--army-green); box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        .about-box { background: white; padding: 30px; border-radius: 10px; border-left: 10px solid var(--accent-gold); }
+        .btn-form { display: inline-block; background: var(--army-green); color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 20px; }
+        footer { text-align: center; padding: 30px; background: var(--primary-dark); color: white; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#issue">The Issue</a>
-        <a href="#about">The Advocate</a>
-        <a href="#feedback">Feedback</a>
-    </nav>
-
-    <header id="home">
-        <h1>DISCIPLINE AND THE PEN: FIGHTING PLASTIC POLLUTION</h1>
-        <p>A Step Toward a Cleaner and Greener Philippines</p>
-    </header>
-
-    <div class="container">
-        
-        <section id="issue">
-            <h2 style="text-align: center;">The Plastic Crisis in the Philippines</h2>
-            <p>The Philippines stands as a primary source of marine plastic waste globally. Our reliance on the "sachet economy" sends thousands of tons of plastic into our oceans daily, threatening marine life and our collective health. This advocacy demands a shift in mindset and a lifelong commitment to environmental discipline.</p>
-        </section>
-
-        <div class="infographic">
-            <div class="info-card">
-                <h2>2.7M</h2>
-                <p>Tons of plastic waste generated in PH annually.</p>
-            </div>
-            <div class="info-card">
-                <h2>Top 3</h2>
-                <p>Global rank of PH in ocean plastic contribution.</p>
-            </div>
-            <div class="info-card">
-                <h2>28%</h2>
-                <p>Only about 28% of key plastic resins are recycled.</p>
-            </div>
-        </div>
-
-        <section id="about" class="about-section">
-            <h3>Meet the Advocate</h3>
-            <p>I am a <strong>Grade 11 Student</strong> who believes in the power of the pen to spark positive change. Carrying the discipline I forged as an <strong>ROTC member in Grade 8</strong>, I strive to embody service and accountability through this environmental cause. My goal is to use my skill in writing to inspire the youth to become active solutions for a plastic-free future.</p>
-        </section>
-
-        <section id="feedback" style="text-align: center; margin-top: 60px;">
-            <h2>Support the Campaign</h2>
-            <p>Your insights are essential for the growth of this project. Click the button below to share your thoughts.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJalmS_s6sxsf2d-JPDi1T9Men49k4xrP2-F4hXPJflgnbPg/viewform?usp=header" target="_blank" class="btn-feedback">SHARE YOUR FEEDBACK</a>
-        </section>
-
+    <div id="landing-page">
+        <h1>DISCIPLINE & ACTION</h1>
+        <p>A student-led advocacy against plastic pollution in the Philippines.</p>
+        <button class="btn-enter" onclick="enterSite()">ENTER WEBSITE</button>
     </div>
 
-    <footer>
-        <p>Empowerment Technologies | Performance Task 2026 | Grade 11 HUMSS</p>
-    </footer>
+    <div id="main-site">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#issue">The Crisis</a>
+            <a href="#advocate">The Advocate</a>
+            <a href="#feedback">Feedback</a>
+        </nav>
+
+        <header id="home">
+            <h2>Advocacy Webpage</h2>
+            <p>Built on the foundation of discipline and responsibility.</p>
+        </header>
+
+        <div class="container">
+            <section id="issue">
+                <h2 style="text-align: center;">The Plastic Problem</h2>
+                <p>The Philippines generates millions of tons of plastic waste every year. Without proper discipline in waste management, our oceans and communities suffer.</p>
+            </section>
+
+            <div class="card-row">
+                <div class="card">
+                    <h2 style="color: var(--army-green);">2.7M</h2>
+                    <p>Tons of waste per year</p>
+                </div>
+                <div class="card">
+                    <h2 style="color: var(--army-green);">Grade 8</h2>
+                    <p>ROTC Foundation</p>
+                </div>
+            </div>
+
+            <section id="advocate" class="about-box">
+                <h3>About the Advocate</h3>
+                <p>I am a Grade 11 Student dedicated to environmental change. My approach is rooted in the <strong>discipline</strong> I developed as an <strong>ROTC member in Grade 8</strong>.</p>
+            </section>
+
+            <section id="feedback" style="text-align: center; margin-top: 60px;">
+                <h2>Support the Campaign</h2>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJalmS_s6sxsf2d-JPDi1T9Men49k4xrP2-F4hXPJflgnbPg/viewform?usp=header" target="_blank" class="btn-form">GIVE FEEDBACK</a>
+            </section>
+        </div>
+
+        <footer>
+            <p>Empowerment Technologies | Performance Task 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        function enterSite() {
+            // This hides the landing page and shows the main site
+            document.getElementById('landing-page').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('landing-page').style.display = 'none';
+                document.getElementById('main-site').style.display = 'block';
+                window.scrollTo(0,0);
+            }, 800);
+        }
+    </script>
 
 </body>
 </html>
